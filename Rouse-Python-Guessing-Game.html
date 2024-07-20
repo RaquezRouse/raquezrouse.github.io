@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">```html</span></p>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script defer src="https://pyscript.net/latest/pyscript.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;py-config&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>packages = ["numpy"]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/py-config&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;py-script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>import numpy as np</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>from pyscript import Element, when<span class="Apple-converted-space">        </span>selection = np.random.randint(0, 100, 1)[0]</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@when("click", selector="#submit")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>def check_guess():</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>try:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>user_guess = int(Element("guess").value)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>result = Element("result")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if user_guess == selection:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>result.write("Congratulations! You guessed correctly.")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>elif user_guess &gt; selection:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>result.write("Try again! Your guess was too high.")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>else:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>result.write("Try again! Your guess was too low.")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>except ValueError:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Element("result").write("Please enter a valid integer.")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/py-script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;form&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label for="guess"&gt;Guess:&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input name="guess" id="guess"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button type="button" id="submit"&gt;Check Guess&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label for="result"&gt;Result:&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div name="result" id="result"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p1"><span class="s1">```</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+</body>
+</html>
